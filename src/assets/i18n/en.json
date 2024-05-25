@@ -1,0 +1,17 @@
+{
+    "HOME": {
+        "season": "Season",
+        "episode": "Episode",
+        "search_episode_by_number": "Search episode by number" 
+    },
+    "ERRORS": {
+        "limit_exceeded": "You have exceeded the monthly query limit",
+        "upgrade_plan_in": "Upgrade your plan in",
+        "no_results": "No results found"
+    },
+    "LANG": {
+        "title": "Language",
+        "spanish": "Spanish",
+        "english": "English"
+     }
+}
