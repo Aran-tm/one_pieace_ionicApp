@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-intro',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IntroPage implements OnInit {
 
-  constructor() { }
+  // inyecto el modulo de Router
+  router = inject(Router);
 
   ngOnInit() {
+    console.log(`Hey`);
+  }
+
+  ionViewWillEnter(){
+    setTimeout(() => {
+      this.router.navigateByUrl('/home');
+    }, 2800);
   }
 
 }

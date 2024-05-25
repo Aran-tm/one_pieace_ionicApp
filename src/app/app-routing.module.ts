@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',   // se redirecciona al inicio a la pagina home
+    redirectTo: 'intro',   // se redirecciona al inicio a la pagina home
     pathMatch: 'full'
   },
   {
