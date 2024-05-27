@@ -52,8 +52,12 @@
               [label]="'HOME.season' | translate"
               labelPlacement="stacked"
             >
-              <ion-select-option value="peperoni">Peperoni</ion-select-option>
-              <ion-select-option value="hawaii">Hawaii</ion-select-option>
+              <!-- Un Arreglo con mis temporadas para poder mostrarlas visualmente -->
+              @for (temporada of temporadas; track temporadas) {
+              <ion-select-option value="peperoni"
+                >{{temporadas}}</ion-select-option
+              >
+              }
             </ion-select>
           </ion-item>
         </div>
