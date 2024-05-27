@@ -2,7 +2,7 @@
     "HOME": {
         "season": "Season",
         "episode": "Episode",
-        "search_episode_by_number": "Search episode by number" 
+        "search_episode_by_number": "Search episode by number"
     },
     "ERRORS": {
         "limit_exceeded": "You have exceeded the monthly query limit",
@@ -13,5 +13,9 @@
         "title": "Language",
         "spanish": "Spanish",
         "english": "English"
+     },
+     "BUTTONS": {
+      "accept": "Accept",
+      "cancel": "Cancel"
      }
 }

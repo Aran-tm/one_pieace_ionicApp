@@ -1,13 +1,23 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-title class="ion-padding-top">
-      <img src="/assets/images/isologo.png" alt="">
+      <img src="/assets/images/isologo.png" alt="" />
     </ion-title>
 
     <ion-item mode="ios" lines="none" slot="end" class="item-lang">
-      <ion-select [(ngModel)]="selectedLanguage" (ionChange)="setLanguage()">
-        <ion-select-option value="es">{{'LANG.spanish' | translate}}</ion-select-option>
-        <ion-select-option value="en">{{'LANG.english' | translate}}</ion-select-option>
+      <!-- El toggle icon modifica el icono del ion select -->
+      <ion-select
+        [(ngModel)]="selectedLanguage"
+        (ionChange)="setLanguage()"
+        toggleIcon="globe"
+        interface="popover"
+      >
+        <ion-select-option value="es"
+          >{{'LANG.spanish' | translate}}</ion-select-option
+        >
+        <ion-select-option value="en"
+          >{{'LANG.english' | translate}}</ion-select-option
+        >
       </ion-select>
     </ion-item>
   </ion-toolbar>
@@ -16,5 +26,39 @@
 <div class="shapedividers_com-9602"></div>
 
 <ion-content>
-  {{'LANG.spanish' | translate}}
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" class="d-flex-center">
+        <div class="filters animate__animated animate__bounceInDown">
+          <ion-item lines="none" class="custom-input">
+            <ion-icon slot="start" name="search" color="primary"></ion-icon>
+            <ion-input
+              type="number"
+              labelPlacement="floating"
+              [label]="'HOME.search_episode_by_number' | translate"
+            ></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-icon
+              class="select-icon"
+              slot="start"
+              src="assets/images/isotipo.svg"
+            ></ion-icon>
+            <ion-select
+              [okText]="'BUTTONS.accept' | translate"
+              [cancelText]="'BUTTONS.cancel' | translate"
+              mode="ios"
+              [label]="'HOME.season' | translate"
+              labelPlacement="stacked"
+            >
+              <ion-select-option value="peperoni">Peperoni</ion-select-option>
+              <ion-select-option value="hawaii">Hawaii</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+      </ion-col>
+      <ion-col size="6"></ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
