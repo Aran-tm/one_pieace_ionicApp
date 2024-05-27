@@ -16,7 +16,7 @@
 @import "@ionic/angular/css/normalize.css";
 @import "@ionic/angular/css/structure.css";
 @import "@ionic/angular/css/typography.css";
-@import "@ionic/angular/css/display.css";
+@import '@ionic/angular/css/display.css';
 
 /* Optional CSS utils that can be commented out */
 @import "@ionic/angular/css/padding.css";
@@ -24,14 +24,103 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+@import 'animate.css';
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
+ion-toolbar {
+    --background: linear-gradient(to top, var(--ion-color-primary), var(--ion-color-secondary));
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+    ion-title img {
+        width: 160px;
+    }
+}
+
+.item-lang {
+    --background: transparent;
+    --color: white;
+    text-align: start;
+
+    ion-select::part(icon) {
+        color: white;
+        width: 40px;
+    }
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.d-flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading {
+    text-align: center;
+    padding-top: 50px;
+
+    ion-spinner {
+        padding: 50px;
+    }
+}
+
+.error {
+    text-align: center;
+    padding: 60px;
+    opacity: 30%;
+
+    ion-icon {
+        font-size: 100px;
+    }
+}
+
+.custom-input {
+    --border-color: #e0e0e0;
+    --border-radius: 15px;
+    --border-style: solid;
+    --border-width: 1px;
+    margin: 20px 0;
+
+    ion-input {
+        --highlight-color-valid: var(--ion-color-primary);
+    }
+}
+
+.episode-card {
+    height: 430px;
+    border-radius: 15px;
+    background: linear-gradient(to bottom, var(--ion-color-primary), var(--ion-color-secondary));
+    color: var(--ion-color-primary-contrast);
+
+    ion-avatar {
+        width: 100%;
+        height: 190px;
+        --border-radius: 15px;
+    }
+
+    .title {
+        font-weight: 600;
+        padding: 0 0 10px 0;
+    }
+
+    .play-btn {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+
+
+//<!-- ======= Límite de peticiones mensuales superadas ======== -->
+// <ng-container *ngIf="limitError && !loading">
+//   <div class="error">
+//     <ion-icon src="assets/mugiwara.svg"></ion-icon>
+//     <h4>{{'ERRORS.limit_exceeded' | translate}}</h4>
+//     <p>
+//       {{'ERRORS.upgrade_plan_in' | translate}} 
+//       <a href="https://rapidapi.com/hub" target="_blank" rel="noopener noreferrer">RapidAPI</a>
+//     </p>
+//   </div>
+// </ng-container>
