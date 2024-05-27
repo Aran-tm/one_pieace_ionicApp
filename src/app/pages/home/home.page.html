@@ -3,11 +3,18 @@
     <ion-title class="ion-padding-top">
       <img src="/assets/images/isologo.png" alt="">
     </ion-title>
+
+    <ion-item mode="ios" lines="none" slot="end" class="item-lang">
+      <ion-select [(ngModel)]="selectedLanguage" (ionChange)="setLanguage()">
+        <ion-select-option value="es">{{'LANG.spanish' | translate}}</ion-select-option>
+        <ion-select-option value="en">{{'LANG.english' | translate}}</ion-select-option>
+      </ion-select>
+    </ion-item>
   </ion-toolbar>
 </ion-header>
 
 <div class="shapedividers_com-9602"></div>
 
 <ion-content>
-  {{'HOME.season' | translate}}
+  {{'LANG.spanish' | translate}}
 </ion-content>
