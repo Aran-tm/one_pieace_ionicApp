@@ -36,7 +36,7 @@ export class LanguageService {
       this.setLanguage(language);
   }
 
-  // permite cambiar el idioma de la aplicacion
+  // permite cambiar el idioma de la aplicacion 
   setLanguage(lang: string) {
     this.translate.use(lang);
     localStorage.setItem('language', lang);
