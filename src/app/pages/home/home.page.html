@@ -51,11 +51,14 @@
               mode="ios"
               [label]="'HOME.season' | translate"
               labelPlacement="stacked"
+              [(ngModel)]="selectedSeason"
+              [placeholder]="selectedSeason"
             >
               <!-- Un Arreglo con mis temporadas para poder mostrarlas visualmente -->
-              @for (temporada of temporadas; track temporadas) {
-              <ion-select-option value="peperoni"
-                >{{temporadas}}</ion-select-option
+              @for (temp of temporadas; track temp.id) {
+              <ion-select-option [value]="temp.id"
+                >{{temp.title}} ({{temp.saga_episode.replace('à',
+                '-')}})</ion-select-option
               >
               }
             </ion-select>

@@ -14,6 +14,7 @@ export class HomePage implements OnInit {
 
   // variables para almacenar información en mi aplicación
   temporadas: ISeason[] = [];
+  selectedSeason = '';
 
   // variable inyectada para el cambio de idioma
   languageSVC = inject(LanguageService);
@@ -47,6 +48,8 @@ export class HomePage implements OnInit {
           // guardo las temporadas obtenidas en un array
           this.temporadas = res;
           console.log(this.temporadas);
+
+          this.selectedSeason = `${this.temporadas[0].title} (${this.temporadas[0].saga_episode.replace('à', '-')})`;
         }
           //error: err => console.error('Error:', err), // Manejador de errores
           //complete: () => console.log('Observable completo') // Manejador de finalización
