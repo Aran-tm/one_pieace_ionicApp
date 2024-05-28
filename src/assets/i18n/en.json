@@ -1,7 +1,8 @@
 {
     "HOME": {
-        "season": "Category",
-        "search_episode_by_number": "Search anime"
+        "season": "Season",
+        "episode": "Episode",
+        "search_episode_by_number": "Search episode by number"
     },
     "ERRORS": {
         "limit_exceeded": "You have exceeded the monthly query limit",

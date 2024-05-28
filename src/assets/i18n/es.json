@@ -1,7 +1,8 @@
 {
     "HOME": {
-        "season": "Categoría",
-        "search_episode_by_number": "Buscar anime"
+        "season": "Temporada",
+        "episode": "Episodio",
+        "search_episode_by_number": "Buscar anime por número"
     },
     "ERRORS": {
         "limit_exceeded": "Has superado el límite de consultas mensuales",

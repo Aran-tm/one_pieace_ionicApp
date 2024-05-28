@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
 
-  animes: 'https://kitsu.io/api/edge/anime',         // endpoints
-  categories: 'https://kitsu.io/api/edge/categories'
+  animes: 'https://api.api-onepiece.com/v2/',         // endpoints
+  sagas: 'sagas/en'
 };

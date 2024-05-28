@@ -33,7 +33,7 @@
           <ion-item lines="none" class="custom-input">
             <ion-icon slot="start" name="search" color="primary"></ion-icon>
             <ion-input
-              type="text"
+              type="number"
               labelPlacement="floating"
               [label]="'HOME.search_episode_by_number' | translate"
             ></ion-input>
@@ -51,10 +51,14 @@
               mode="ios"
               [label]="'HOME.season' | translate"
               labelPlacement="stacked"
-              [placeholder]="selectedCategories"
+              [placeholder]="selectedSeason"
             >
               <!-- Un Arreglo con mis temporadas para poder mostrarlas visualmente -->
-              <ion-select-option></ion-select-option>
+              @for (temp of temporadas; track temp.id) {
+              <ion-select-option [value]="temp.id"
+                >{{temp.title}} ({{temp.saga_episode.replace('à', '-')}})</ion-select-option
+              >
+              }
             </ion-select>
           </ion-item>
         </div>

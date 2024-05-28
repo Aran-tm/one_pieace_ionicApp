@@ -1,9 +1,9 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { LanguageService } from 'src/app/services/language.service';
 import { OnePieceService } from '../../services/one-piece.service';
+import { IAnimes } from 'src/app/models/animes.model';
 
 // modelo o interface ISeason
-import { IAnimes } from 'src/app/models/animes.model';
 
 @Component({
   selector: 'app-home',
@@ -13,9 +13,8 @@ import { IAnimes } from 'src/app/models/animes.model';
 export class HomePage implements OnInit {
 
   // variables para almacenar información en mi aplicación
-  animes: IAnimes[] = [];
-  categorias: string = '';
-  selectedCategories = '';
+  temporadas: IAnimes[] = [];
+  selectedSeason = '';
 
   // variable inyectada para el cambio de idioma
   languageSVC = inject(LanguageService);
@@ -29,7 +28,7 @@ export class HomePage implements OnInit {
 
     // obtengo todos los capitulos de la serie One Piece
     // esto es posible gracias al servicio que importo
-    this.getAnimes();
+    this.getSeasons();
   }
 
   // Cambiar el idioma
@@ -38,35 +37,18 @@ export class HomePage implements OnInit {
   }
 
   // obtener las temporadas
-  getAnimes() {
-    this.onePieceSVC.getAnimes()
+  getSeasons() {
+    this.onePieceSVC.getSeasons()
       .subscribe({
 
         // manejar la respuesta exitosa (success)
         next: (res: any) => {
-          console.log(res);
 
-          // guardo las series
-          this.animes = res;
-          console.log(this.animes);
-        }
-          //error: err => console.error('Error:', err), // Manejador de errores
-          //complete: () => console.log('Observable completo') // Manejador de finalización
-      })
-  }
+          // guardo las temporadas obtenidas en un array
+          this.temporadas = res;
+          console.log(this.temporadas);
 
-  getCategories() {
-
-    this.onePieceSVC.getCategories()
-      .subscribe({
-
-        // manejar la respuesta exitosa (success)
-        next: (res: any) => {
-          console.log(res);
-
-          // guardo las categorias
-          this.categorias = res;
-          console.log(this.categorias);
+          this.selectedSeason = '';
         }
           //error: err => console.error('Error:', err), // Manejador de errores
           //complete: () => console.log('Observable completo') // Manejador de finalización

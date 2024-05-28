@@ -13,16 +13,9 @@ export class OnePieceService {
   constructor() { }
 
   // obtengo los Animes
-  getAnimes() {
+  getSeasons() {
 
     // esta es la base URL de donde obtengo los datos
-    return this.http.get(environment.animes);
-  }
-
-  // obtengo las categorias
-  getCategories() {
-
-    // esta es la base URL de donde obtengo los datos
-    return this.http.get(environment.categories);
+    return this.http.get(environment.animes + environment.sagas);
   }
 }
