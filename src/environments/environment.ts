@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
 
-  baseURL: 'https://api.jikan.moe/v4/',
-  seasons: 'anime?q=naruto&limit=20',          // endpoints
+  animes: 'https://kitsu.io/api/edge/anime',         // endpoints
+  categories: 'https://kitsu.io/api/edge/categories'
 };
 
 /*

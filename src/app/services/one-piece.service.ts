@@ -12,9 +12,17 @@ export class OnePieceService {
 
   constructor() { }
 
-  // obtengo las temporadas o SAGAS
-  getSeasons() {
+  // obtengo los Animes
+  getAnimes() {
 
-    return this.http.get(environment.baseURL + environment.seasons);
+    // esta es la base URL de donde obtengo los datos
+    return this.http.get(environment.animes);
+  }
+
+  // obtengo las categorias
+  getCategories() {
+
+    // esta es la base URL de donde obtengo los datos
+    return this.http.get(environment.categories);
   }
 }

@@ -33,7 +33,7 @@
           <ion-item lines="none" class="custom-input">
             <ion-icon slot="start" name="search" color="primary"></ion-icon>
             <ion-input
-              type="number"
+              type="text"
               labelPlacement="floating"
               [label]="'HOME.search_episode_by_number' | translate"
             ></ion-input>
@@ -51,16 +51,10 @@
               mode="ios"
               [label]="'HOME.season' | translate"
               labelPlacement="stacked"
-              [(ngModel)]="selectedSeason"
-              [placeholder]="selectedSeason"
+              [placeholder]="selectedCategories"
             >
               <!-- Un Arreglo con mis temporadas para poder mostrarlas visualmente -->
-              @for (temp of temporadas; track temp.id) {
-              <ion-select-option [value]="temp.id"
-                >{{temp.title}} ({{temp.saga_episode.replace('à',
-                '-')}})</ion-select-option
-              >
-              }
+              <ion-select-option></ion-select-option>
             </ion-select>
           </ion-item>
         </div>

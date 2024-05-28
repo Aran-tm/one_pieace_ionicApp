@@ -3,7 +3,7 @@ import { LanguageService } from 'src/app/services/language.service';
 import { OnePieceService } from '../../services/one-piece.service';
 
 // modelo o interface ISeason
-import { ISeason } from 'src/app/models/season.model';
+import { IAnimes } from 'src/app/models/animes.model';
 
 @Component({
   selector: 'app-home',
@@ -13,8 +13,9 @@ import { ISeason } from 'src/app/models/season.model';
 export class HomePage implements OnInit {
 
   // variables para almacenar información en mi aplicación
-  temporadas: ISeason[] = [];
-  selectedSeason = '';
+  animes: IAnimes[] = [];
+  categorias: string = '';
+  selectedCategories = '';
 
   // variable inyectada para el cambio de idioma
   languageSVC = inject(LanguageService);
@@ -28,7 +29,7 @@ export class HomePage implements OnInit {
 
     // obtengo todos los capitulos de la serie One Piece
     // esto es posible gracias al servicio que importo
-    this.getSeasons();
+    this.getAnimes();
   }
 
   // Cambiar el idioma
@@ -37,34 +38,38 @@ export class HomePage implements OnInit {
   }
 
   // obtener las temporadas
-  getSeasons() {
-    this.onePieceSVC.getSeasons()
+  getAnimes() {
+    this.onePieceSVC.getAnimes()
       .subscribe({
 
         // manejar la respuesta exitosa (success)
         next: (res: any) => {
           console.log(res);
 
-          // guardo las temporadas obtenidas en un array
-          this.temporadas = res;
-          console.log(this.temporadas);
-
-          this.selectedSeason = `${this.temporadas[0].title} (${this.temporadas[0].saga_episode.replace('à', '-')})`;
+          // guardo las series
+          this.animes = res;
+          console.log(this.animes);
         }
           //error: err => console.error('Error:', err), // Manejador de errores
           //complete: () => console.log('Observable completo') // Manejador de finalización
       })
   }
 
-  // obtener los capitulos por temporada
-  // getEpisodesBySeason() {
+  getCategories() {
 
-  //   this.onePieceSVC.getEpisodes()
-  //     .subscribe({
+    this.onePieceSVC.getCategories()
+      .subscribe({
 
-  //       next: (res: any) => {
-  //         console.log(`Episodes: `, res);
-  //       }
-  //     })
-  // }
+        // manejar la respuesta exitosa (success)
+        next: (res: any) => {
+          console.log(res);
+
+          // guardo las categorias
+          this.categorias = res;
+          console.log(this.categorias);
+        }
+          //error: err => console.error('Error:', err), // Manejador de errores
+          //complete: () => console.log('Observable completo') // Manejador de finalización
+      })
+  }
 }
