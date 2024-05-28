@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,6 @@ export class OnePieceService {
   // obtengo las temporadas o SAGAS
   getSeasons() {
 
-    return this.http.get('https://api.api-onepiece.com/v2/sagas/en');
+    return this.http.get(environment.baseURL + environment.seasons);
   }
 }

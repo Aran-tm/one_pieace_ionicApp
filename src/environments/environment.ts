@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  baseURL: 'https://api.jikan.moe/v4/',
+  seasons: 'anime?q=naruto&limit=20',          // endpoints
 };
 
 /*

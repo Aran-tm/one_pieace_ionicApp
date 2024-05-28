@@ -55,4 +55,16 @@ export class HomePage implements OnInit {
           //complete: () => console.log('Observable completo') // Manejador de finalización
       })
   }
+
+  // obtener los capitulos por temporada
+  // getEpisodesBySeason() {
+
+  //   this.onePieceSVC.getEpisodes()
+  //     .subscribe({
+
+  //       next: (res: any) => {
+  //         console.log(`Episodes: `, res);
+  //       }
+  //     })
+  // }
 }
