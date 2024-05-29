@@ -48,7 +48,7 @@ export class HomePage implements OnInit {
           this.temporadas = res;
           console.log(this.temporadas);
 
-          this.selectedSeason = '';
+          this.selectedSeason = this.temporadas[0].title + ` (${this.temporadas[0].saga_episode.replace('à', '-')})`;
         }
           //error: err => console.error('Error:', err), // Manejador de errores
           //complete: () => console.log('Observable completo') // Manejador de finalización
