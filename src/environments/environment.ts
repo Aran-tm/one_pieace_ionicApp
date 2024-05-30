@@ -6,7 +6,8 @@ export const environment = {
   production: false,
 
   animes: 'https://api.api-onepiece.com/v2/',         // endpoints
-  sagas: 'sagas/en' 
+  sagas: 'sagas/en',
+  episodios: 'episodes/en/saga/'
 };
 
 /*

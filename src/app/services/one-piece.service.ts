@@ -12,7 +12,7 @@ export class OnePieceService {
 
   constructor() { }
 
-  // obtengo los Animes
+  // obtengo las temporadas
   getSeasons() {
 
     // esta es la base URL de donde obtengo los datos
