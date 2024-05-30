@@ -56,14 +56,42 @@
               <!-- Un Arreglo con mis temporadas para poder mostrarlas visualmente -->
               @for (temp of temporadas; track temp.id) {
               <ion-select-option [value]="temp.id"
-                >{{temp.title}} ({{temp.saga_episode.replace('à', '-')}})</ion-select-option
+                >{{temp.title}} ({{temp.saga_episode.replace('à',
+                '-')}})</ion-select-option
               >
               }
             </ion-select>
           </ion-item>
         </div>
       </ion-col>
-      <ion-col size="6"></ion-col>
+      <ion-col
+        size="4"
+        size-lg="6"
+        size-md="12"
+        size-sm="12"
+        class="ion-margin-bottom"
+      >
+        @for (episode of episodes; track episode.id) {
+        <ion-card class="ion-margin-top">
+          <img
+            alt="Silhouette of mountains"
+            src="https://ionicframework.com/docs/img/demos/card-media.png"
+          />
+          <ion-card-header>
+            <ion-card-title>Card Title</ion-card-title>
+            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            Here's a small text description for the card content. Nothing more,
+            nothing less.
+          </ion-card-content>
+        </ion-card>
+        } @empty {
+          <p>Loading...</p>
+          <ion-spinner name="lines-sharp"></ion-spinner>
+        }
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

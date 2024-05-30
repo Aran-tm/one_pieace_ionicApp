@@ -3,8 +3,8 @@ import { LanguageService } from 'src/app/services/language.service';
 import { OnePieceService } from '../../services/one-piece.service';
 import { IAnimes } from 'src/app/models/animes.model';
 import { IEpisodes } from 'src/app/models/episodes.model';
-import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 // modelo o interface ISeason
 
@@ -23,11 +23,10 @@ export class HomePage implements OnInit {
   // variable inyectada para el cambio de idioma
   languageSVC = inject(LanguageService);
   onePieceSVC = inject(OnePieceService);
+  http = inject(HttpClient);
   selectedLanguage = '';
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor() { }
 
   ngOnInit() {
     this.selectedLanguage = localStorage.getItem('language') as string;
@@ -35,7 +34,7 @@ export class HomePage implements OnInit {
     // obtengo todos los capitulos de la serie One Piece
     // esto es posible gracias al servicio que importo
     this.getSeasons();
-    this.getEpisodes();
+    this.getEpisodesBySagaID();
   }
 
   // Cambiar el idioma
@@ -63,9 +62,11 @@ export class HomePage implements OnInit {
   }
 
   // obtener los episodios por id de saga
-   getEpisodes() {
+  getEpisodesBySagaID() {
 
-     return this.http.get(environment.animes + environment.episodios + this.temporadas[0].id).subscribe({
+    return this.http.get(environment.animes + environment.episodios + 1)
+      .subscribe({
+
         // manejar la respuesta exitosa (success)
         next: (res: any) => {
 
@@ -73,7 +74,6 @@ export class HomePage implements OnInit {
           this.episodes = res;
           console.log(`Episodios`, this.episodes);
         }
-     })
-
+      })
   }
 }
